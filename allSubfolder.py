@@ -9,10 +9,13 @@ from PyPDF2 import PdfFileMerger, PdfFileReader
 mergedObject = PdfFileMerger()
 
 rootdir = 'C:\\Users\\leona\\OneDrive - PRODESP\\Prottt(SPSP)\\'
+thing = "TodosPDFs.pdf"
 
 # Loop through all of subfolders and then pdf's and append their pages
 for sub in os.listdir(rootdir):
     path = rootdir+sub+"\\"
+    arr = os.listdir(path)
+    if thing in arr: os.remove(path+thing)
     mergedObject = PdfFileMerger()
     for filepath in glob.iglob(path+"*.pdf"):
        print(filepath)
